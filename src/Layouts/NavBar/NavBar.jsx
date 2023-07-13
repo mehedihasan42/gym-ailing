@@ -2,6 +2,7 @@ import React from 'react';
 import { HiMenu } from "react-icons/hi";
 import { Link } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
+import { BsFillCartCheckFill } from "react-icons/bs";
 
 const NavBar = () => {
     const { user, logOut } = useAuth()
@@ -11,6 +12,12 @@ const NavBar = () => {
         <li><Link to='/instractors'>Instructors</Link></li>
         <li><Link to='/courses'>Courses</Link></li>
         <li><Link to='/profile'>Profile</Link></li>
+        <li>
+            <button className="btn">
+               <BsFillCartCheckFill className='text-2xl'/>
+                <div className="badge badge-secondary">+99</div>
+            </button>
+        </li>
     </>
 
     const handleLogOut = () => {
@@ -26,7 +33,7 @@ const NavBar = () => {
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
                         <HiMenu className='text-white text-3xl' />
                     </label>
-                    <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+                    <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-black rounded-box w-52">
                         {navText}
                     </ul>
                 </div>
