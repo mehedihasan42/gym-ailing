@@ -1,17 +1,10 @@
-import { useQuery } from '@tanstack/react-query';
 import React from 'react';
 import { BsFillTrashFill } from "react-icons/bs";
 import Swal from 'sweetalert2';
+import useUserUpdate from '../../hooks/useUserUpdate';
 
 const Users = () => {
-    const { isLoading, error, data: users=[],refetch } = useQuery({
-        queryKey: ['users'],
-        queryFn: async () => {
-            const res = await fetch('http://localhost:5000/users')
-            return res.json()
-        }
-    })
-
+    const [users,refetch] = useUserUpdate()
     const handleUpdate = user =>{
         fetch(`http://localhost:5000/users/admin/${user._id}`,{
             method:'PATCH'

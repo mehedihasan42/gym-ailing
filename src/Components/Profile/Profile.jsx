@@ -1,8 +1,11 @@
 import React from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
+// import useUserUpdate from '../../hooks/useUserUpdate';
 
 const Profile = () => {
 
+    // const [users] = useUserUpdate()
+    // console.log(users.role)
     const isAdmin = true;
 
     return (
@@ -18,7 +21,8 @@ const Profile = () => {
                 <ul className="menu p-4 w-80 h-full bg-[#DAFF0D] text-base-content">
                     {/* Sidebar content here */}
                     <a className="text-xl uppercase mb-6 underline">GYM<span className='text-current font-bold'>ailing</span></a>
-                    {isAdmin ? <>
+                    {
+                    isAdmin? <>
                         <li><NavLink to='/profile/users'>All Users</NavLink></li>
                         <li><NavLink to='/profile/enroll'>Manage Booking</NavLink></li>
                         <li><NavLink to='/profile/payment'>Add Course</NavLink></li>
@@ -26,7 +30,8 @@ const Profile = () => {
                         <li><NavLink to='/profile/booking'>Booking Classes</NavLink></li>
                         <li><NavLink to='/profile/enroll'>Enroll Classes</NavLink></li>
                         <li><NavLink to='/profile/payment'>Payment History</NavLink></li>
-                    </>}
+                    </>
+                    }
                     <div className="divider bg-neutral h-0.5"></div>
                     <li><NavLink to='/'>Home</NavLink></li>
                     <li><NavLink to='/instractors'>Instructors</NavLink></li>
