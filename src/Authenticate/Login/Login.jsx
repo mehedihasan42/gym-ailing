@@ -4,12 +4,12 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
 import { Helmet } from 'react-helmet';
 import Swal from 'sweetalert2';
-import { AiOutlineGoogle } from "react-icons/ai";
+import SocialLogin from '../SocialLogin/SocialLogin';
 // import useGoogleLogin from '../../hooks/useGoogleLogin';
 
 const Login = () => {
 
-  const {userLogin, loginWithGoogle} = useAuth()
+  const {userLogin} = useAuth()
   // const [loginWithGoogle] = useGoogleLogin()
   const navigate = useNavigate();
   const location = useLocation();
@@ -32,16 +32,7 @@ const Login = () => {
     })
 }
 
- const handleGoogleLogin = () =>{
-  loginWithGoogle()
-  .then(result=>{
-      const user = result.user;
-      console.log(user)
-  })
-  .catch(error=>{
-      console.error(error)
-  })
- }
+ 
     return (
         <div className="hero min-h-screen bg-[#DAFF0D]">
             <Helmet>
@@ -68,9 +59,7 @@ const Login = () => {
               </div>
               <p className='text-white'>New User! Please <Link to='/signup' className='text-blue-600 font-bold'>Sign Up</Link></p>
             </div>
-        <button
-         onClick={handleGoogleLogin}
-         className="btn btn-circle btn-outline bg-[#DAFF0D] mx-auto  lg:mb-2"><AiOutlineGoogle className='text-2xl'/></button>
+      <SocialLogin></SocialLogin>
           </div>
         </form>
       </div>

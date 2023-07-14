@@ -11,6 +11,7 @@ import BookingClasses from '../Drawer/BookingClasses/BookingClasses';
 import EnrolClasses from '../Drawer/EnrolClasses/EnrolClasses';
 import Payment from '../Drawer/Payment/Payment';
 import PrivetRouter from './PrivetRouter';
+import Users from '../Drawer/Users/Users';
 
 const router = createBrowserRouter([
     {
@@ -54,6 +55,10 @@ const router = createBrowserRouter([
         {
           path:'payment',
           element:<Payment></Payment>
+        },
+        {
+          path:'users',
+          element:<Users></Users>
         }
       ]
     }
