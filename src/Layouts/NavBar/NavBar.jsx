@@ -2,7 +2,6 @@ import React from 'react';
 import { HiMenu } from "react-icons/hi";
 import { Link } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
-import { BsFillCartCheckFill } from "react-icons/bs";
 
 const NavBar = () => {
     const { user, logOut } = useAuth()
@@ -12,12 +11,6 @@ const NavBar = () => {
         <li><Link to='/instractors'>Instructors</Link></li>
         <li><Link to='/courses'>Courses</Link></li>
         <li><Link to='/profile'>Profile</Link></li>
-        <li>
-            <button className="btn">
-               <BsFillCartCheckFill className='text-2xl'/>
-                <div className="badge badge-secondary">+99</div>
-            </button>
-        </li>
     </>
 
     const handleLogOut = () => {

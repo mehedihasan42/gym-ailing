@@ -1,17 +1,19 @@
 import React from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
+import useAdmin from '../../hooks/useAdmin';
 // import useUserUpdate from '../../hooks/useUserUpdate';
 
 const Profile = () => {
 
     // const [users] = useUserUpdate()
     // console.log(users.role)
-    const isAdmin = true;
+    // const isAdmin = true;
+    const [isAdmin] = useAdmin()
 
     return (
         <div className="drawer lg:drawer-open">
             <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
-            <div className="drawer-content flex flex-col items-center justify-center">
+            <div className="drawer-content flex flex-col items-center justify-center bg-black">
                 <Outlet></Outlet>
                 <label htmlFor="my-drawer-2" className="btn btn-primary drawer-button lg:hidden">Open drawer</label>
 
@@ -24,8 +26,8 @@ const Profile = () => {
                     {
                     isAdmin? <>
                         <li><NavLink to='/profile/users'>All Users</NavLink></li>
-                        <li><NavLink to='/profile/enroll'>Manage Booking</NavLink></li>
-                        <li><NavLink to='/profile/payment'>Add Course</NavLink></li>
+                        <li><NavLink to='/profile/addcourse'>Add Course</NavLink></li>
+                        <li><NavLink to='/profile/payment'>Manage Item</NavLink></li>
                     </> : <>
                         <li><NavLink to='/profile/booking'>Booking Classes</NavLink></li>
                         <li><NavLink to='/profile/enroll'>Enroll Classes</NavLink></li>

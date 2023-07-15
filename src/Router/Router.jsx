@@ -12,6 +12,8 @@ import EnrolClasses from '../Drawer/EnrolClasses/EnrolClasses';
 import Payment from '../Drawer/Payment/Payment';
 import PrivetRouter from './PrivetRouter';
 import Users from '../Drawer/Users/Users';
+import AddCourse from '../Drawer/AddCourse/AddCourse';
+import AdminRouter from './AdminRouter';
 
 const router = createBrowserRouter([
     {
@@ -59,6 +61,10 @@ const router = createBrowserRouter([
         {
           path:'users',
           element:<Users></Users>
+        },
+        {
+          path:'addcourse',
+          element:<AdminRouter><AddCourse></AddCourse></AdminRouter>
         }
       ]
     }
