@@ -14,6 +14,7 @@ import PrivetRouter from './PrivetRouter';
 import Users from '../Drawer/Users/Users';
 import AddCourse from '../Drawer/AddCourse/AddCourse';
 import AdminRouter from './AdminRouter';
+import ManageCourse from '../Drawer/ManageCourse/ManageCourse';
 
 const router = createBrowserRouter([
     {
@@ -65,6 +66,10 @@ const router = createBrowserRouter([
         {
           path:'addcourse',
           element:<AdminRouter><AddCourse></AddCourse></AdminRouter>
+        },
+        {
+          path:'managecourse',
+          element:<AdminRouter><ManageCourse></ManageCourse></AdminRouter>
         }
       ]
     }

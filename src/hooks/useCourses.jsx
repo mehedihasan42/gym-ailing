@@ -3,7 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 
 const useCourses = () => {
 
-    const { data:courseData=[] } = useQuery({
+    const { data:courseData=[], refetch } = useQuery({
         queryKey: ['courses'],
         queryFn: async()=>{
             const res = await fetch('http://localhost:5000/courses')
@@ -11,7 +11,7 @@ const useCourses = () => {
         }
     })
 
-    return [courseData]
+    return [courseData,refetch]
 };
 
 export default useCourses;

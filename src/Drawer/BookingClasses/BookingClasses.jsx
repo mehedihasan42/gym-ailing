@@ -2,6 +2,8 @@ import React from 'react';
 import useBookings from '../../hooks/useBookings';
 import { BsFillTrashFill } from "react-icons/bs";
 import Swal from 'sweetalert2';
+import SectionTitle from '../../Layouts/SectionTitle/SectionTitle';
+import { Link } from 'react-router-dom';
 
 const BookingClasses = () => {
   const [courseData,refetch] = useBookings()
@@ -38,12 +40,14 @@ const BookingClasses = () => {
 
   return (
     <>
-      <h2 className="text-center font-bold mt-8 text-2xl">Total Bookings: {courseData.length}</h2>
-      <h2 className="text-center font-bold mt-8 text-2xl">Total Price: {total}</h2>
+      <SectionTitle heading={'Book classes'}></SectionTitle>
+      <h2 className="text-center font-bold mt-8 text-2xl text-base-100">Total Bookings: {courseData.length}</h2>
+      <h2 className="text-center font-bold mt-8 text-2xl text-base-100">Total Price: {total}</h2>
+      <Link to='/profile/payment'><button className="btn btn-sm bg-[#DAFF0D]">Pay</button></Link>
       <div className='grid lg:grid-cols-2'>
         {
           courseData.map(data =>
-            <div key={data._id} className="card card-compact w-96 bg-black text-white shadow-xl lg:mx-12 my-8">
+            <div key={data._id} className="card card-compact w-96 bg-[#DAFF0D] text-black shadow-xl lg:mx-12 my-8">
               <figure><img src={data.classImage} alt="Shoes" /></figure>
               <div className="card-body">
                 <h2 className="card-title">{data.className}</h2>
@@ -51,7 +55,7 @@ const BookingClasses = () => {
                 <div className="card-actions justify-end">
                   <button
                     onClick={() => handleDelete(data)}
-                    className="btn bg-[#DAFF0D]"><BsFillTrashFill className='text-xl' /></button>
+                    className="btn bg-black"><BsFillTrashFill className='text-xl text-white' /></button>
                 </div>
               </div>
             </div>
