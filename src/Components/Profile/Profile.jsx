@@ -25,14 +25,15 @@ const Profile = () => {
                     <a className="text-xl uppercase mb-6 underline">GYM<span className='text-current font-bold'>ailing</span></a>
                     {
                     isAdmin? <>
+                        <li><NavLink to='/profile/adminHome'>Admin Home</NavLink></li>
                         <li><NavLink to='/profile/users'>All Users</NavLink></li>
                         <li><NavLink to='/profile/addcourse'>Add Course</NavLink></li>
                         <li><NavLink to='/profile/managecourse'>Manage Course</NavLink></li>
-                        <li><NavLink to='/profile/payment'>Manage Item</NavLink></li>
                     </> : <>
+                        <li><NavLink to='/profile/userHome'>My Profile</NavLink></li>
                         <li><NavLink to='/profile/booking'>Booking Classes</NavLink></li>
                         <li><NavLink to='/profile/enroll'>Enroll Classes</NavLink></li>
-                        <li><NavLink to='/profile/payment'>Payment History</NavLink></li>
+                        <li><NavLink to='/profile/histry'>Payment History</NavLink></li>
                     </>
                     }
                     <div className="divider bg-neutral h-0.5"></div>

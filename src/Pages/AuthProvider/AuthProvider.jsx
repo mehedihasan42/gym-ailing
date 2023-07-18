@@ -10,7 +10,7 @@ const auth = getAuth(app);
 const AuthProvider = ({children}) => {
 
     const [user,setUser] = useState(null)
-    const [loading,setLoading] = useState(null)
+    const [loading,setLoading] = useState(true)
     const googleProvider = new GoogleAuthProvider();
 
     const createNewUser = (email,password)=>{
@@ -51,6 +51,7 @@ const AuthProvider = ({children}) => {
        }
        else{
         localStorage.removeItem('access-token')
+        setLoading(false)
        }
        
        

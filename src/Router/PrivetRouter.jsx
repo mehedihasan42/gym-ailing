@@ -13,8 +13,8 @@ const PrivetRouter = ({ children }) => {
     if (user) {
         return children;
     }
-      //TODO: navigate it to login page {to='/login'}
-    return <Navigate state={{ from: location }}></Navigate>
+      //TODO: navigate it to login page {}
+    return <Navigate to='/login' state={{ from: location }}></Navigate>
 
 };
 

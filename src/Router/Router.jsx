@@ -15,6 +15,9 @@ import Users from '../Drawer/Users/Users';
 import AddCourse from '../Drawer/AddCourse/AddCourse';
 import AdminRouter from './AdminRouter';
 import ManageCourse from '../Drawer/ManageCourse/ManageCourse';
+import UserHome from '../Drawer/UserHome/UserHome';
+import AdminHome from '../Drawer/AdminHome/AdminHome';
+import Histry from '../Drawer/Histry/Histry';
 
 const router = createBrowserRouter([
     {
@@ -48,8 +51,12 @@ const router = createBrowserRouter([
       element:<PrivetRouter><Profile></Profile></PrivetRouter>,
       children:[
         {
+          path:'userHome',
+          element:<UserHome></UserHome>
+        },
+        {
           path:'booking',
-          element:<PrivetRouter><BookingClasses></BookingClasses></PrivetRouter>
+          element:<BookingClasses></BookingClasses>
         },
         {
           path:'enroll',
@@ -62,6 +69,14 @@ const router = createBrowserRouter([
         {
           path:'users',
           element:<Users></Users>
+        },
+        {
+          path:'histry',
+          element:<Histry></Histry>
+        },
+        {
+          path:'adminHome',
+          element:<AdminRouter><AdminHome></AdminHome></AdminRouter>
         },
         {
           path:'addcourse',

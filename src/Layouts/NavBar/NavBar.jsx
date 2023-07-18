@@ -1,16 +1,16 @@
 import React from 'react';
 import { HiMenu } from "react-icons/hi";
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
 
 const NavBar = () => {
     const { user, logOut } = useAuth()
 
     const navText = <>
-        <li><Link to='/'>Home</Link></li>
-        <li><Link to='/instractors'>Instructors</Link></li>
-        <li><Link to='/courses'>Courses</Link></li>
-        <li><Link to='/profile'>Profile</Link></li>
+        <li><NavLink to='/'>Home</NavLink></li>
+        <li><NavLink to='/instractors'>Instructors</NavLink></li>
+        <li><NavLink to='/courses'>Courses</NavLink></li>
+        <li><NavLink to='/profile'>Profile</NavLink></li>
     </>
 
     const handleLogOut = () => {
