@@ -11,10 +11,10 @@ const Histry = () => {
                paymentData.map(data=><div className='my-6 text-xl font-bold' key={data._id}>
                 {
                     // console.log(data.price)
-                    <>
+                    <div className='border border-base-200 p-6'>
                     <p className='text-xl text-white'>Amount: ${data.price}</p>
                     <p className='text-sm text-white'>Transetion Id: {data.transetionId}</p>
-                    </>
+                    </div>
                     // data.itmesName.map((item,index)=><div className='text-white flex justify-center'>
                     //     <p>{index+1}.</p>
                     //    <p>{item}</p>

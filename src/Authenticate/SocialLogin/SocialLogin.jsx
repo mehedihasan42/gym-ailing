@@ -15,7 +15,7 @@ const SocialLogin = () => {
             const user = result.user;
             console.log(user)
             const saveUser = {name:user.displayName,email:user.email,photo:user.photoURL}
-            fetch('http://localhost:5000/users',{
+            fetch('https://body-build-gym-server-eikjp07vk-mehedihasan42.vercel.app/users',{
                 method:'POST',
                 headers: {
                   'content-type': 'application/json'

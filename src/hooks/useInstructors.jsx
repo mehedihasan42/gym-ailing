@@ -8,7 +8,7 @@ const useInstructors = () => {
 
   // const [infos,setInfos] = useState()
   // useEffect(()=>{
-  //   fetch('http://localhost:5000/instructors')
+  //   fetch('https://body-build-gym-server-eikjp07vk-mehedihasan42.vercel.app/instructors')
   //   .then(res=>res.json())
   //   .then(data=>setInfos(data))
   // },[])
@@ -16,7 +16,7 @@ const useInstructors = () => {
     const { data:instructorInfo=[] } = useQuery({
         queryKey: ['instructors'],
         queryFn: async()=>{
-           const res = await fetch('http://localhost:5000/instructors')
+           const res = await fetch('https://body-build-gym-server-eikjp07vk-mehedihasan42.vercel.app/instructors')
            return res.json()
         }
     })

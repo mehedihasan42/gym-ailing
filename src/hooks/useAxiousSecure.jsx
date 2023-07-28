@@ -5,7 +5,7 @@ import useAuth from './useAuth';
 
 
 const axiosSecure = axios.create({
-    baseURL: 'http://localhost:5000', 
+    baseURL: 'https://body-build-gym-server-eikjp07vk-mehedihasan42.vercel.app', 
 });
 
 const useAxiosSecure = () => {
@@ -33,8 +33,8 @@ const useAxiosSecure = () => {
                 if (error.response) {
                     const { status } = error.response;
                     if (status === 401 || status === 403) {
-                        await logOut();
-                        navigate('/login');
+                        // await logOut();
+                        // navigate('/login');
                     }
                 }
                 return Promise.reject(error);

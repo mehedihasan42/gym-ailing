@@ -10,9 +10,8 @@ const EnrolClasses = () => {
             {
                paymentData.map(data=><div className='my-6 text-xl font-bold' key={data._id}>
                 {
-                    data.itmesName.map((item,index)=><div className='text-white flex justify-center'>
-                        <p>{index+1}.</p>
-                       <p>{item}</p>
+                    data.itmesName.map((item)=><div className='text-white flex justify-center'>
+                       <p className='border border-base-300 my-2 p-2'>{item}</p>
                         </div>)
                 }
                </div>)

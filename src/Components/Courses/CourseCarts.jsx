@@ -1,36 +1,61 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Swal from 'sweetalert2';
 import useAuth from '../../hooks/useAuth';
 import { useNavigate } from 'react-router-dom';
+import useBookings from '../../hooks/useBookings';
+import usePayments from '../../hooks/usePayments';
 
 const CourseCarts = ({ data }) => {
     const { _id, image, courseName, duration, price, totalStudents } = data;
     const { user } = useAuth()
     const navigate = useNavigate()
+    const [courseData,refetch] = useBookings();
+    const [paymentData] = usePayments()
+   
+    const isAlreadyBooked = courseData.some(
+        (booking) => booking.email === user?.email && booking.classId === _id
+    );
 
-    const handleAddToCard = item => {
-        console.log(item)
-        if (user && user.email) {
-            const bookings = {email:user.email, classId:_id, classImage:image, className:courseName, classDuration:duration, coursePrice:price, enrollStudents:totalStudents}
-            fetch('http://localhost:5000/booking', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(bookings)
+    const isAlreadyEnroll = paymentData.some(
+        (payment) => payment.email === user?.email && payment.courseId.includes(_id)
+    );
 
-            })
+    const handleAddToCard = () => {
+        if (isAlreadyBooked) {
             Swal.fire({
-                position: 'top-end',
-                icon: 'success',
-                title: 'Your work has been saved',
+                icon: 'info',
+                title: 'You have already booked this course',
                 showConfirmButton: false,
-                timer: 1500
-            })
-        }
-        else {
+                timer: 2500
+            });
+        } else if (isAlreadyEnroll) {
             Swal.fire({
-                title: 'Please login for book course!',
+                icon: 'info',
+                title: 'You have already enrolled in this course',
+                showConfirmButton: false,
+                timer: 2500
+            });
+        } else if (user && user.email) {
+            // ... code for booking the course ...
+            const bookings = {email:user.email, classId:_id, classImage:image, className:courseName, classDuration:duration, coursePrice:price, enrollStudents:totalStudents}
+                    fetch('https://body-build-gym-server-eikjp07vk-mehedihasan42.vercel.app/booking', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(bookings)
+                    })
+                    refetch()
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'success',
+                        title: 'Course Booking Successfully',
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+        } else {
+            Swal.fire({
+                title: 'Please login to book the course!',
                 icon: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
@@ -38,11 +63,13 @@ const CourseCarts = ({ data }) => {
                 confirmButtonText: 'Go to Login'
             }).then((result) => {
                 if (result.isConfirmed) {
-                    navigate('/login')
+                    navigate('/login');
                 }
-            })
+            });
         }
-    }
+    };
+    
+
     return (
         <div
             data-aos="fade-right"

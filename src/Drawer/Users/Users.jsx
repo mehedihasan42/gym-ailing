@@ -8,7 +8,7 @@ const Users = () => {
     const [users,refetch] = useUserUpdate()
     const [axiosSecure] = useAxiosSecure()
     const handleUpdate = user =>{
-        fetch(`http://localhost:5000/users/admin/${user._id}`,{
+        fetch(`https://body-build-gym-server-eikjp07vk-mehedihasan42.vercel.app/users/admin/${user._id}`,{
             method:'PATCH'
         })
         .then(res=>res.json())
@@ -27,7 +27,7 @@ const Users = () => {
     }
 
    const handleDelete = user =>{
-    axiosSecure.delete(`http://localhost:5000/users/${user._id}`)
+    axiosSecure.delete(`https://body-build-gym-server-eikjp07vk-mehedihasan42.vercel.app/users/${user._id}`)
      .then(data=>{
       if(data.data.deletedCount){
         refetch()
