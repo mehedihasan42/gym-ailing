@@ -56,7 +56,7 @@ const SignUp = () => {
 
   return (
     <div className="hero min-h-screen bg-[#DAFF0D]">
-      <div data-aos="zoom-in"  className="w-2/3 mx-auto">
+      <div data-aos="zoom-in"  className="lg:w-2/3 mx-auto">
         <h2 className='text-2xl font-bold text-center mb-6'>SignUp Please</h2>
         <div className="card w-full max-w-sm shadow-2xl mx-auto bg-black lg:my-6">
           <form className="card-body" onSubmit={handleSubmit(onSubmit)}>

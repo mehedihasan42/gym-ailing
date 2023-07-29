@@ -38,7 +38,7 @@ const Login = () => {
             <Helmet>
                   <title>Log In</title>
             </Helmet>
-        <form data-aos="zoom-in" onSubmit={handleSubmit(onSubmit)} className="w-2/3 mx-auto">
+        <form data-aos="zoom-in" onSubmit={handleSubmit(onSubmit)} className="lg:w-2/3 mx-auto">
             <h2 className='text-2xl font-bold text-center mb-6'>LogIn Please</h2>
           <div className="card w-full max-w-sm shadow-2xl mx-auto bg-black">
             <div className="card-body">
